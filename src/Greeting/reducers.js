@@ -1,10 +1,11 @@
 import { CHANGE_WORD } from './actions';
+import { useReducer } from 'react';
 
 const initialState = {
   name: 'World'
 };
 
-export default (state = initialState, action) => {
+const greetingReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_WORD:
       return Object.assign({}, state, {
@@ -14,3 +15,5 @@ export default (state = initialState, action) => {
       return state
   }
 };
+
+export const useGreetingReducer = () => useReducer(greetingReducer, initialState);

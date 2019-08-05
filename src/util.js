@@ -26,5 +26,24 @@ export const createReducer =
       }
     };
 
+export const combineReducers = reducers => {
+  let state = {};
+  const dispatch = (action) => {
+    for (let key in reducers) {
+      reducers[key][1](action);
+    }
+  };
+
+  for (let key in reducers) {
+    const reducer = reducers[key];
+    state[key] = reducer[0];
+  }
+
+  return {
+    state,
+    dispatch
+  };
+};
+
 export const updateObject =
     (oldObject, newValues) => Object.assign({}, oldObject, newValues);

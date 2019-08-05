@@ -47,7 +47,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Redux Sample',
+      title: 'Redux with context',
       filename: 'index.html',
       template: 'index.html'
     }),

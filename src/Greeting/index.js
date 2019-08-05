@@ -1,6 +1,6 @@
 import React from 'react';
 import { changeWord } from './actions';
-import { connect } from 'react-redux';
+import { connect } from '../stores';
 import Greeting from './Greeting';
 
 const mapStateToProps = state => {

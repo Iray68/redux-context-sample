@@ -1,5 +1,6 @@
 import { ADD_TODO_LIST, COMPLETE_TODO } from './actions';
 import { createReducer, updateObject } from '../util';
+import { useReducer } from 'react';
 
 const initialState = {
   todoList: []
@@ -29,7 +30,9 @@ const completeTodo = (state, action) => {
   });
 };
 
-export default createReducer(initialState, {
+const todoReducer = createReducer(initialState, {
   [ADD_TODO_LIST]: addTodoList,
   [COMPLETE_TODO]: completeTodo
 });
+
+export const useTodoReducer = () => useReducer(todoReducer, initialState);
